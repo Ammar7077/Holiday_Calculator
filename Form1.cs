@@ -85,7 +85,7 @@ namespace WindowsFormsApp1
             
             if (yesToolStripMenuItem.Checked)
             {
-                textBox3.Text = sum.ToString();
+                textBox3.Text = mSumDays().ToString();
                 //
                 noToolStripMenuItem.Checked = false;
                 radioBtnYes.Checked = true;
@@ -93,7 +93,7 @@ namespace WindowsFormsApp1
             else
             {
                 sum -= 50;
-                textBox3.Text = sum.ToString();
+                textBox3.Text = mSumDays().ToString();
                 //
                 radioBtnYes.Checked = false;
                 LogThis("Yes menu Unchecked");
@@ -106,7 +106,7 @@ namespace WindowsFormsApp1
             {
                 if (yesToolStripMenuItem.Checked)
                     sum -= 50;
-                textBox3.Text = sum.ToString();
+                textBox3.Text = mSumDays().ToString();
                 //
                 yesToolStripMenuItem.Checked = false;
                 radioBtnNo.Checked = true;
@@ -223,7 +223,7 @@ namespace WindowsFormsApp1
                     listBox1.SelectedIndex = -1;
                 }
             }
-            textBox3.Text = sum.ToString();
+            textBox3.Text = mSumDays().ToString();
                 
         }
         //------------*******--------------
@@ -236,7 +236,7 @@ namespace WindowsFormsApp1
                 noToolStripMenuItem.Checked = false;
                 //
                 sum += 50;
-                textBox3.Text = sum.ToString();
+                textBox3.Text = mSumDays().ToString();
             }
             
         }
@@ -253,7 +253,7 @@ namespace WindowsFormsApp1
                 yesToolStripMenuItem.Checked = false;
                 
                 
-                textBox3.Text = sum.ToString();
+                textBox3.Text = mSumDays().ToString();
             }
         }
         //----------**********-------------####
@@ -271,7 +271,7 @@ namespace WindowsFormsApp1
                 LogThis("Transport:   NO");
                 transportToolStripMenuItem.Checked = false;
             }
-            textBox3.Text = sum.ToString();
+            textBox3.Text = mSumDays().ToString();
         }
 
         private void transportToolStripMenuItem_Click(object sender, EventArgs e)
@@ -300,7 +300,7 @@ namespace WindowsFormsApp1
                 LogThis("Guide:   NO");
                 guideToolStripMenuItem.Checked = false;
             }
-            textBox3.Text = sum.ToString();
+            textBox3.Text = mSumDays().ToString();
         }
 
         private void guideToolStripMenuItem_Click(object sender, EventArgs e)
@@ -329,7 +329,7 @@ namespace WindowsFormsApp1
                 LogThis("Insurance:   NO");
                 insuranceToolStripMenuItem.Checked = false;
             }
-            textBox3.Text = sum.ToString();
+            textBox3.Text = mSumDays().ToString();
         }
 
         private void insuranceToolStripMenuItem_Click(object sender, EventArgs e)
@@ -363,11 +363,17 @@ namespace WindowsFormsApp1
             //
             days = (int) monthCalendar1.SelectionRange.End.Date.Subtract(monthCalendar1.SelectionRange.Start.Date).TotalDays+1;
 
-            textBox3.Text = (sum*days).ToString();
+            textBox3.Text = mSumDays().ToString();
             daysBox.Text = days.ToString();
 
 
         }
+        // SUM * DAYS
+        private int mSumDays()
+        {
+            return sum * days;
+        }
+        //-----------
 
         private void TFrom_TextChanged(object sender, EventArgs e)
         {
@@ -418,7 +424,7 @@ namespace WindowsFormsApp1
                 LogThis("Clear Items from (Rooms)");
             }
                 
-            textBox3.Text = sum.ToString();
+            textBox3.Text = mSumDays().ToString();
 
         }
         private void doubleToolStripMenuItem_Click(object sender, EventArgs e)
@@ -450,7 +456,7 @@ namespace WindowsFormsApp1
                 LogThis("Clear Items from (Rooms)");
             }
                 
-            textBox3.Text = sum.ToString();
+            textBox3.Text = mSumDays().ToString();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -483,7 +489,7 @@ namespace WindowsFormsApp1
                 sum = 0;
                 days = 1;
                 daysBox.Text = days.ToString();
-                textBox3.Text = (sum).ToString();
+                textBox3.Text = sum.ToString();
             }
 
 
@@ -547,7 +553,7 @@ namespace WindowsFormsApp1
                 sum -= 30;
                 LogThis("Clear Items from (Rooms)");
             }
-            textBox3.Text = sum.ToString();
+            textBox3.Text = mSumDays().ToString();
         }
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
@@ -584,7 +590,7 @@ namespace WindowsFormsApp1
                 sum -= 40;
                 LogThis("Clear Items from (Rooms)");
             }
-            textBox3.Text = sum.ToString();
+            textBox3.Text = mSumDays().ToString();
         }
     }
 }
