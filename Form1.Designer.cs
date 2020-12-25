@@ -113,6 +113,7 @@
             // 
             this.TFrom.Location = new System.Drawing.Point(601, 356);
             this.TFrom.Name = "TFrom";
+            this.TFrom.ReadOnly = true;
             this.TFrom.Size = new System.Drawing.Size(194, 20);
             this.TFrom.TabIndex = 3;
             this.TFrom.TextChanged += new System.EventHandler(this.TFrom_TextChanged);
@@ -121,6 +122,7 @@
             // 
             this.TTo.Location = new System.Drawing.Point(601, 408);
             this.TTo.Name = "TTo";
+            this.TTo.ReadOnly = true;
             this.TTo.Size = new System.Drawing.Size(194, 20);
             this.TTo.TabIndex = 4;
             this.TTo.TextChanged += new System.EventHandler(this.TTo_TextChanged);
@@ -160,6 +162,7 @@
             this.textBox3.ForeColor = System.Drawing.Color.Red;
             this.textBox3.Location = new System.Drawing.Point(827, 383);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(111, 46);
             this.textBox3.TabIndex = 8;
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
@@ -443,6 +446,7 @@
             this.daysBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.daysBox.Location = new System.Drawing.Point(827, 275);
             this.daysBox.Name = "daysBox";
+            this.daysBox.ReadOnly = true;
             this.daysBox.Size = new System.Drawing.Size(96, 26);
             this.daysBox.TabIndex = 23;
             this.daysBox.TextChanged += new System.EventHandler(this.daysBox_TextChanged);
