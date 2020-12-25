@@ -96,6 +96,7 @@ namespace WindowsFormsApp1
                 textBox3.Text = sum.ToString();
                 //
                 radioBtnYes.Checked = false;
+                LogThis("Yes menu Unchecked");
             }
         }
 
@@ -103,6 +104,8 @@ namespace WindowsFormsApp1
         {
             if (noToolStripMenuItem.Checked)
             {
+                if (yesToolStripMenuItem.Checked)
+                    sum -= 50;
                 textBox3.Text = sum.ToString();
                 //
                 yesToolStripMenuItem.Checked = false;
@@ -110,10 +113,8 @@ namespace WindowsFormsApp1
             }
             else
             {
-                sum += 50;
-                textBox3.Text = sum.ToString();
-                //
                 radioBtnNo.Checked = false;
+                LogThis("No menu Unchecked");
             }
         }
         //----------------------------------
@@ -153,7 +154,7 @@ namespace WindowsFormsApp1
                 {
                     sum -= 10;
                     //
-                    LogThis("Clear Items");
+                    LogThis("Clear Items from (Rooms)");
                     listBox1.ClearSelected();
                 }
                     
@@ -176,7 +177,7 @@ namespace WindowsFormsApp1
                 {
                     sum -= 20;
                     //
-                    LogThis("Clear Items");
+                    LogThis("Clear Items from (Rooms)");
                     listBox1.ClearSelected();
                 }
                     
@@ -197,7 +198,7 @@ namespace WindowsFormsApp1
                 {
                     sum -= 30;
                     //
-                    LogThis("Clear Items");
+                    LogThis("Clear Items from (Rooms)");
                     listBox1.ClearSelected();
                 }
 
@@ -218,7 +219,7 @@ namespace WindowsFormsApp1
                 {
                     sum -= 40;
                     //
-                    LogThis("Clear Items");
+                    LogThis("Clear Items from (Rooms)");
                     listBox1.SelectedIndex = -1;
                 }
             }
@@ -390,20 +391,66 @@ namespace WindowsFormsApp1
         //*********
         private void singleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (singleToolStripMenuItem.Checked)            {                listBox1.SelectedItem = "Single";                sum += 10;                if (doubleToolStripMenuItem.Checked)                {                    sum -= 20;                }                if (deluxeToolStripMenuItem.Checked)                {                    sum -= 30;                }                if (familyToolStripMenuItem.Checked)                {                    sum -= 40;                }                doubleToolStripMenuItem.Checked = false;                deluxeToolStripMenuItem.Checked = false;                familyToolStripMenuItem.Checked = false;            }            else
+            if (singleToolStripMenuItem.Checked)
+            {
+                LogThis("Checked Single from Menu");
+                listBox1.SelectedItem = "Single";
+                sum += 10;
+                if (doubleToolStripMenuItem.Checked)
+                {
+                    sum -= 20;
+                }
+                if (deluxeToolStripMenuItem.Checked)
+                {
+                    sum -= 30;
+                }
+                if (familyToolStripMenuItem.Checked)
+                {
+                    sum -= 40;
+                }
+                doubleToolStripMenuItem.Checked = false;
+                deluxeToolStripMenuItem.Checked = false;
+                familyToolStripMenuItem.Checked = false;
+            }
+            else
             {
                 sum -= 10;
-                LogThis("Clear Items");
-            }                            textBox3.Text = sum.ToString();
+                LogThis("Clear Items from (Rooms)");
+            }
+                
+            textBox3.Text = sum.ToString();
 
         }
         private void doubleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (doubleToolStripMenuItem.Checked)            {                listBox1.SelectedItem ="Double";                sum += 20;                if (singleToolStripMenuItem.Checked)                {                    sum -= 10;                }                if (deluxeToolStripMenuItem.Checked)                {                    sum -= 30;                }                if (familyToolStripMenuItem.Checked)                {                    sum -= 40;                }                singleToolStripMenuItem.Checked = false;                deluxeToolStripMenuItem.Checked = false;                familyToolStripMenuItem.Checked = false;            }            else
+            if (doubleToolStripMenuItem.Checked)
+            {
+                LogThis("Checked Double from Menu");
+                listBox1.SelectedItem ="Double";
+                sum += 20;
+                if (singleToolStripMenuItem.Checked)
+                {
+                    sum -= 10;
+                }
+                if (deluxeToolStripMenuItem.Checked)
+                {
+                    sum -= 30;
+                }
+                if (familyToolStripMenuItem.Checked)
+                {
+                    sum -= 40;
+                }
+                singleToolStripMenuItem.Checked = false;
+                deluxeToolStripMenuItem.Checked = false;
+                familyToolStripMenuItem.Checked = false;
+            }
+            else
             {
                 sum -= 20;
-                LogThis("Clear Items");
-            }                            textBox3.Text = sum.ToString();
+                LogThis("Clear Items from (Rooms)");
+            }
+                
+            textBox3.Text = sum.ToString();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -474,11 +521,33 @@ namespace WindowsFormsApp1
 
         private void deluxeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (deluxeToolStripMenuItem.Checked)            {                listBox1.SelectedItem ="Deluxe";                sum += 30*days;                if (doubleToolStripMenuItem.Checked)                {                    sum -= 20;                }                if (singleToolStripMenuItem.Checked)                {                    sum -= 10;                }                if (familyToolStripMenuItem.Checked)                {                    sum -= 40;                }                doubleToolStripMenuItem.Checked = false;                singleToolStripMenuItem.Checked = false;                familyToolStripMenuItem.Checked = false;            }            else
+            if (deluxeToolStripMenuItem.Checked)
+            {
+                LogThis("Checked Deluxe from Menu");
+                listBox1.SelectedItem ="Deluxe";
+                sum += 30*days;
+                if (doubleToolStripMenuItem.Checked)
+                {
+                    sum -= 20;
+                }
+                if (singleToolStripMenuItem.Checked)
+                {
+                    sum -= 10;
+                }
+                if (familyToolStripMenuItem.Checked)
+                {
+                    sum -= 40;
+                }
+                doubleToolStripMenuItem.Checked = false;
+                singleToolStripMenuItem.Checked = false;
+                familyToolStripMenuItem.Checked = false;
+            }
+            else
             {
                 sum -= 30;
-                LogThis("Clear Items");
-            }            textBox3.Text = sum.ToString();
+                LogThis("Clear Items from (Rooms)");
+            }
+            textBox3.Text = sum.ToString();
         }
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
@@ -489,11 +558,33 @@ namespace WindowsFormsApp1
 
         private void familyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (familyToolStripMenuItem.Checked)            {                listBox1.SelectedItem = "Family";                sum += 40*days;                if (doubleToolStripMenuItem.Checked)                {                    sum -= 20;                }                if (deluxeToolStripMenuItem.Checked)                {                    sum -= 30;                }                if (singleToolStripMenuItem.Checked)                {                    sum -= 10;                }                doubleToolStripMenuItem.Checked = false;                deluxeToolStripMenuItem.Checked = false;                singleToolStripMenuItem.Checked = false;            }            else
+            if (familyToolStripMenuItem.Checked)
+            {
+                LogThis("Checked Family from Menu");
+                listBox1.SelectedItem = "Family";
+                sum += 40*days;
+                if (doubleToolStripMenuItem.Checked)
+                {
+                    sum -= 20;
+                }
+                if (deluxeToolStripMenuItem.Checked)
+                {
+                    sum -= 30;
+                }
+                if (singleToolStripMenuItem.Checked)
+                {
+                    sum -= 10;
+                }
+                doubleToolStripMenuItem.Checked = false;
+                deluxeToolStripMenuItem.Checked = false;
+                singleToolStripMenuItem.Checked = false;
+            }
+            else
             {
                 sum -= 40;
-                LogThis("Clear Items");
-            }            textBox3.Text = sum.ToString();
+                LogThis("Clear Items from (Rooms)");
+            }
+            textBox3.Text = sum.ToString();
         }
     }
 }
