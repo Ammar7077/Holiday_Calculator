@@ -8,3 +8,41 @@ C:\Users\Windows 10 Pro\Desktop\pppppp\HW2\WindowsFormsApp1\WindowsFormsApp1\obj
 C:\Users\Windows 10 Pro\Desktop\pppppp\HW2\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\Windows 10 Pro\Desktop\pppppp\HW2\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Windows 10 Pro\Desktop\pppppp\HW2\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\Dapper.dll
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\System.Data.SQLite.dll
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\Dapper.xml
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\System.Data.SQLite.xml
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.CheckInForm.resources
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.AdminForm.resources
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.SignInForm.resources
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\DB1.mdf
+C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\bin\Debug\DB1_log.ldf
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\DB1.mdf
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\DB1_log.ldf
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\Dapper.dll
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\System.Data.SQLite.dll
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\Dapper.xml
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\bin\Debug\System.Data.SQLite.xml
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.CheckInForm.resources
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.AdminForm.resources
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.SignInForm.resources
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Windows 10 Pro\Desktop\CS_Project\Test\WindowsFormsApp1\Holiday_Calculator\obj\Debug\WindowsFormsApp1.pdb

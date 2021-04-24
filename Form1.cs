@@ -7,21 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// Good job
+using System.Data.SqlClient;
+
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class CheckInForm : Form
     {
-        private int sum = 0,days=1,av=999,cClicks = 0;
-        
-
-        public Form1()
+        public int sum = 0,days=1,av=999,cClicks = 0;
+        //
+        public string path = (@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\DB1.mdf;Integrated Security=True");
+        //
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Windows 10 Pro\Desktop\study\الفصل الحالي\c#\PROJECTS\HW2\WindowsFormsApp1\WindowsFormsApp1\Holiday_Calculator\DB1.mdf;Integrated Security=True");
+        DataTable dt = new DataTable();
+        SqlDataAdapter da = new SqlDataAdapter();
+        SqlCommand com = new SqlCommand();
+        //
+        public string select1 = "SELECT ID as Room_Number,IDP as Personal_ID,isCheck as Vacancy from [Table]";
+        public string select2 = "SELECT ID as Room_Number,isCheck as Vacancy from [Table] where isCheck=0";
+        public string del = "DELETE from [Table] where ID = ";
+        //
+        public CheckInForm()
         {
             InitializeComponent();
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
         private void Holiday_Calculator_Click(object sender, EventArgs e)
         {
@@ -34,20 +41,18 @@ namespace WindowsFormsApp1
         //LogThis
         private void LogThis(string t)
         {
-            listBox2.Items.Add( t + "      " + DateTime.Now.ToLongTimeString());
-            listBox2.SelectedIndex = listBox2.Items.Count - 1;
+            listBoxEvents.Items.Add( t + "      " + DateTime.Now.ToLongTimeString());
+            listBoxEvents.SelectedIndex = listBoxEvents.Items.Count - 1;
         }
         //*******
         private void BreakFast_Click(object sender, EventArgs e)
         {
 
         }
-        
         private bool isChecked()
         {
             return !(singleToolStripMenuItem.Checked || doubleToolStripMenuItem.Checked || deluxeToolStripMenuItem.Checked || familyToolStripMenuItem.Checked) || !(yesToolStripMenuItem.Checked || noToolStripMenuItem.Checked) || !(transportToolStripMenuItem.Checked || guideToolStripMenuItem.Checked || insuranceToolStripMenuItem.Checked);
         }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (isChecked())
@@ -63,7 +68,6 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
         private void BtnExit_Click(object sender, EventArgs e)
         {
             if (isChecked())
@@ -85,7 +89,7 @@ namespace WindowsFormsApp1
             
             if (yesToolStripMenuItem.Checked)
             {
-                textBox3.Text = mSumDays().ToString();
+                textBoxRate.Text = mSumDays().ToString();
                 //
                 noToolStripMenuItem.Checked = false;
                 radioBtnYes.Checked = true;
@@ -93,26 +97,26 @@ namespace WindowsFormsApp1
             else
             {
                 sum -= 50;
-                textBox3.Text = mSumDays().ToString();
+                textBoxRate.Text = mSumDays().ToString();
                 //
                 radioBtnYes.Checked = false;
                 LogThis("Yes menu Unchecked");
             }
         }
-
         private void noToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (noToolStripMenuItem.Checked)
             {
                 if (yesToolStripMenuItem.Checked)
                     sum -= 50;
-                textBox3.Text = mSumDays().ToString();
+                textBoxRate.Text = mSumDays().ToString();
                 //
                 yesToolStripMenuItem.Checked = false;
                 radioBtnNo.Checked = true;
             }
             else
             {
+                //textBox3.Text = sum.ToString();
                 radioBtnNo.Checked = false;
                 LogThis("No menu Unchecked");
             }
@@ -137,7 +141,7 @@ namespace WindowsFormsApp1
                 sum -= 40;
             }
             //
-            if (listBox1.SelectedItem.ToString()=="Single")
+            if (listBoxRooms.SelectedItem.ToString()=="Single")
             {
                 singleToolStripMenuItem.Checked = true;
                 //
@@ -155,12 +159,10 @@ namespace WindowsFormsApp1
                     sum -= 10;
                     //
                     LogThis("Clear Items from (Rooms)");
-                    listBox1.ClearSelected();
+                    listBoxRooms.ClearSelected();
                 }
-                    
-
             }
-            else if (listBox1.SelectedItem.ToString() == "Double")
+            else if (listBoxRooms.SelectedItem.ToString() == "Double")
             {
                 doubleToolStripMenuItem.Checked = true;
                 //
@@ -178,11 +180,11 @@ namespace WindowsFormsApp1
                     sum -= 20;
                     //
                     LogThis("Clear Items from (Rooms)");
-                    listBox1.ClearSelected();
+                    listBoxRooms.ClearSelected();
                 }
                     
             }
-            else if (listBox1.SelectedItem.ToString() == "Deluxe")
+            else if (listBoxRooms.SelectedItem.ToString() == "Deluxe")
             {
                 deluxeToolStripMenuItem.Checked = true;
                 //
@@ -199,11 +201,11 @@ namespace WindowsFormsApp1
                     sum -= 30;
                     //
                     LogThis("Clear Items from (Rooms)");
-                    listBox1.ClearSelected();
+                    listBoxRooms.ClearSelected();
                 }
 
             }
-            else if(listBox1.SelectedItem.ToString() == "Family")
+            else if(listBoxRooms.SelectedItem.ToString() == "Family")
             {
                 familyToolStripMenuItem.Checked = true;
                 //
@@ -220,10 +222,10 @@ namespace WindowsFormsApp1
                     sum -= 40;
                     //
                     LogThis("Clear Items from (Rooms)");
-                    listBox1.SelectedIndex = -1;
+                    listBoxRooms.SelectedIndex = -1;
                 }
             }
-            textBox3.Text = mSumDays().ToString();
+            textBoxRate.Text = mSumDays().ToString();
                 
         }
         //------------*******--------------
@@ -236,14 +238,12 @@ namespace WindowsFormsApp1
                 noToolStripMenuItem.Checked = false;
                 //
                 sum += 50;
-                textBox3.Text = mSumDays().ToString();
+                textBoxRate.Text = mSumDays().ToString();
             }
             
         }
-
         private void radioBtnNo_CheckedChanged(object sender, EventArgs e)
         {
-            
             if (radioBtnNo.Checked)
             {
                 if(yesToolStripMenuItem.Checked)
@@ -253,7 +253,7 @@ namespace WindowsFormsApp1
                 yesToolStripMenuItem.Checked = false;
                 
                 
-                textBox3.Text = mSumDays().ToString();
+                textBoxRate.Text = mSumDays().ToString();
             }
         }
         //----------**********-------------####
@@ -271,9 +271,8 @@ namespace WindowsFormsApp1
                 LogThis("Transport:   NO");
                 transportToolStripMenuItem.Checked = false;
             }
-            textBox3.Text = mSumDays().ToString();
+            textBoxRate.Text = mSumDays().ToString();
         }
-
         private void transportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (transportToolStripMenuItem.Checked)
@@ -285,7 +284,6 @@ namespace WindowsFormsApp1
                 Transport.Checked = false;
             }
         }
-
         private void Guide_CheckedChanged(object sender, EventArgs e)
         {
             if (Guide.Checked)
@@ -300,9 +298,8 @@ namespace WindowsFormsApp1
                 LogThis("Guide:   NO");
                 guideToolStripMenuItem.Checked = false;
             }
-            textBox3.Text = mSumDays().ToString();
+            textBoxRate.Text = mSumDays().ToString();
         }
-
         private void guideToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (guideToolStripMenuItem.Checked)
@@ -314,7 +311,6 @@ namespace WindowsFormsApp1
                 Guide.Checked = false;
             }
         }
-
         private void Insurance_CheckedChanged(object sender, EventArgs e)
         {
             if (Insurance.Checked)
@@ -329,9 +325,8 @@ namespace WindowsFormsApp1
                 LogThis("Insurance:   NO");
                 insuranceToolStripMenuItem.Checked = false;
             }
-            textBox3.Text = mSumDays().ToString();
+            textBoxRate.Text = mSumDays().ToString();
         }
-
         private void insuranceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (insuranceToolStripMenuItem.Checked)
@@ -343,15 +338,8 @@ namespace WindowsFormsApp1
                 Insurance.Checked = false;
             }
         }
-
-       
-
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-
-            monthCalendar1.MinDate = monthCalendar1.TodayDate;
-            monthCalendar1.MaxDate = monthCalendar1.TodayDate.AddMonths(6);
-            //
             TFrom.Text = monthCalendar1.SelectionStart.ToString();
             TTo.Text = monthCalendar1.SelectionEnd.ToString();
             //
@@ -362,11 +350,9 @@ namespace WindowsFormsApp1
             LogThis(TTo.Text);
             //
             days = (int) monthCalendar1.SelectionRange.End.Date.Subtract(monthCalendar1.SelectionRange.Start.Date).TotalDays+1;
-
-            textBox3.Text = mSumDays().ToString();
+            //
+            textBoxRate.Text = mSumDays().ToString();
             daysBox.Text = days.ToString();
-
-
         }
         // SUM * DAYS
         private int mSumDays()
@@ -374,33 +360,28 @@ namespace WindowsFormsApp1
             return sum * days;
         }
         //-----------
-
         private void TFrom_TextChanged(object sender, EventArgs e)
         {
             
         }
-
         private void TTo_TextChanged(object sender, EventArgs e)
         {
             
         }
-
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             
         }
-
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             
         }
-        //*********
         private void singleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (singleToolStripMenuItem.Checked)
             {
                 LogThis("Checked Single from Menu");
-                listBox1.SelectedItem = "Single";
+                listBoxRooms.SelectedItem = "Single";
                 sum += 10;
                 if (doubleToolStripMenuItem.Checked)
                 {
@@ -423,16 +404,14 @@ namespace WindowsFormsApp1
                 sum -= 10;
                 LogThis("Clear Items from (Rooms)");
             }
-                
-            textBox3.Text = mSumDays().ToString();
-
+            textBoxRate.Text = mSumDays().ToString();
         }
         private void doubleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (doubleToolStripMenuItem.Checked)
             {
                 LogThis("Checked Double from Menu");
-                listBox1.SelectedItem ="Double";
+                listBoxRooms.SelectedItem ="Double";
                 sum += 20;
                 if (singleToolStripMenuItem.Checked)
                 {
@@ -455,16 +434,13 @@ namespace WindowsFormsApp1
                 sum -= 20;
                 LogThis("Clear Items from (Rooms)");
             }
-                
-            textBox3.Text = mSumDays().ToString();
+            textBoxRate.Text = mSumDays().ToString();
         }
-
         private void btnClear_Click(object sender, EventArgs e)
         {
             DialogResult r = MessageBox.Show("Do you want to clear all ?", "Clear!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r.ToString() == "Yes")
             {
-                
                 radioBtnYes.Checked = false;
                 yesToolStripMenuItem.Checked = false;
                 //
@@ -485,23 +461,18 @@ namespace WindowsFormsApp1
                 //
                 TFrom.Text = "Cleared";
                 TTo.Text = "Cleared";
+                txtBoxPID.Text = "Cleared";
                 //
                 sum = 0;
                 days = 1;
                 daysBox.Text = days.ToString();
-                textBox3.Text = sum.ToString();
+                textBoxRate.Text = sum.ToString();
             }
-
-
-
         }
-
         private void daysBox_TextChanged(object sender, EventArgs e)
         {
 
         }
-
-        // Hover
         private void BtnExit_MouseEnter(object sender, EventArgs e)
         {
             BtnExit.BackColor = Color.Cyan;
@@ -510,7 +481,6 @@ namespace WindowsFormsApp1
         {
             BtnExit.BackColor = Color.LightBlue;
         }
-        //
         private void btnClear_MouseEnter(object sender, EventArgs e)
         {
             btnClear.BackColor = Color.YellowGreen;
@@ -519,18 +489,112 @@ namespace WindowsFormsApp1
         {
             btnClear.BackColor = Color.LightBlue;
         }
+        private void MyID_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control && e.KeyCode.ToString()=="C")
+            {
+                radioBtnYes.Checked= true;
+            }
+        }
+
+        private void radioBtnYes_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void Rooms_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            string rid = SignInForm.txtB;
+            int parsedValue;
+            if (isChecked() || string.IsNullOrEmpty(txtBoxPID.Text) || !int.TryParse(txtBoxPID.Text, out parsedValue) || string.IsNullOrEmpty(rid))
+            {
+                MessageBox.Show("(Rooms OR BreakFast OR Extras) OR (personal ID) OR (the number of room) does not exist!, please check your inputs!", "Wrong!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                DialogResult r = MessageBox.Show("Do you want to save changes? ", "Check In?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r.ToString() == "Yes")
+                {
+                    con.Open();
+                    com.Connection = con;
+                    com.CommandText = "UPDATE [Table] SET isCheck = 1 , IDP = " + txtBoxPID.Text + " WHERE ID = " + rid;
+                    com.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+            
+        }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCheckIn_MouseEnter(object sender, EventArgs e)
+        {
+            btnCheckIn.BackColor = Color.LightGray;
+        }
+
+        private void btnCheckIn_MouseLeave(object sender, EventArgs e)
+        {
+            btnCheckIn.BackColor = Color.Turquoise;
+        }
+
+        private void CheckInForm_Load(object sender, EventArgs e)
+        {
+            //txtBoxRoomID.Text= SignInForm.txtB;
+            //
+            monthCalendar1.MinDate = monthCalendar1.TodayDate;
+            monthCalendar1.MaxDate = monthCalendar1.TodayDate.AddMonths(6);
+        }
+
+        private void menuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void chHide_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isChecked()==true)
+            {
+                this.Hide();
+            }
+            else
+            {
+                this.Hide();
+            }
+        }
+
+        private void btnBacktoSI_Click(object sender, EventArgs e)
+        {
+            Form SIN = new SignInForm();
+            SIN.Show();
+            this.Hide();
+        }
 
         //*******
-
-
 
         private void deluxeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (deluxeToolStripMenuItem.Checked)
             {
                 LogThis("Checked Deluxe from Menu");
-                listBox1.SelectedItem ="Deluxe";
+                listBoxRooms.SelectedItem ="Deluxe";
                 sum += 30*days;
                 if (doubleToolStripMenuItem.Checked)
                 {
@@ -553,12 +617,12 @@ namespace WindowsFormsApp1
                 sum -= 30;
                 LogThis("Clear Items from (Rooms)");
             }
-            textBox3.Text = mSumDays().ToString();
+            textBoxRate.Text = mSumDays().ToString();
         }
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
-            Holiday_Calculator.Left = ((Form1.ActiveForm.Width - Logo.Width) - Holiday_Calculator.Width) / 2;
+            Welcome.Left = ((CheckInForm.ActiveForm.Width - Logo.Width) - Welcome.Width) / 2;
         }
 
 
@@ -567,7 +631,7 @@ namespace WindowsFormsApp1
             if (familyToolStripMenuItem.Checked)
             {
                 LogThis("Checked Family from Menu");
-                listBox1.SelectedItem = "Family";
+                listBoxRooms.SelectedItem = "Family";
                 sum += 40*days;
                 if (doubleToolStripMenuItem.Checked)
                 {
@@ -590,7 +654,7 @@ namespace WindowsFormsApp1
                 sum -= 40;
                 LogThis("Clear Items from (Rooms)");
             }
-            textBox3.Text = mSumDays().ToString();
+            textBoxRate.Text = mSumDays().ToString();
         }
     }
 }
